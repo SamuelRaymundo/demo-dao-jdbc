@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f31c506e-9cdc-4200-8eb7-274204169986" name="Changes" comment="Starting git repository">
-      <change afterPath="$PROJECT_DIR$/src/model/dao/DaoFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/dao/impl/SellerDaoJDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/dao/impl/SellerDaoJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/impl/SellerDaoJDBC.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +95,7 @@
       <updated>1722763341621</updated>
       <workItem from="1722763342713" duration="430000" />
       <workItem from="1722910519238" duration="56000" />
-      <workItem from="1722910579574" duration="1901000" />
+      <workItem from="1722910579574" duration="3492000" />
     </task>
     <task id="LOCAL-00001" summary="Starting git repository">
       <option name="closed" value="true" />
