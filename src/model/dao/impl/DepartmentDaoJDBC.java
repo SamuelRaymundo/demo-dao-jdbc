@@ -6,6 +6,7 @@ import model.dao.DepartmentDao;
 import model.entities.Department;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DepartmentDaoJDBC implements DepartmentDao {
@@ -67,14 +68,57 @@ public class DepartmentDaoJDBC implements DepartmentDao {
         ResultSet rs = null;
 
         try {
-            st = conn.prepareStatement(
-                    ""
-            )
+            st = conn.prepareStatement("SELECT * FROM department WHERE Id = ?");
+            st.setInt(1,id);
+
+            rs = st.executeQuery();
+
+            if (rs.next()) {
+                Department department = intantiateDepartment(rs);
+                return department;
+            }
+            return null;
+        }
+        catch (SQLException e) {
+            throw new DbException(e.getMessage());
+        }
+        finally {
+            DB.closeResultSet(rs);
+            DB.closeStatement(st);
         }
     }
 
+    private Department intantiateDepartment(ResultSet rs) throws SQLException {
+        Department department = new Department();
+        department.setId(rs.getInt("Id"));
+        department.setName(rs.getString("Name"));
+        return department;
+    }
+
+
     @Override
     public List<Department> findAll() {
-        return List.of();
+        PreparedStatement st = null;
+        ResultSet rs = null;
+
+        try {
+            st = conn.prepareStatement("SELECT * FROM department");
+            List<Department> departmentList = new ArrayList<>();
+
+            rs = st.executeQuery();
+            while (rs.next()) {
+                Department department = intantiateDepartment(rs);
+                departmentList.add(department);
+            }
+            return departmentList;
+        }
+        catch (SQLException e) {
+            throw new DbException(e.getMessage());
+        }
+        finally {
+            DB.closeResultSet(rs);
+            DB.closeStatement(st);
+        }
+
     }
 }
