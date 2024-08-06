@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         SellerDao sellerDao = DaoFactory.createSellerDao();
 
         System.out.println("=== Test 1: seller findById ===");
@@ -51,10 +51,12 @@ public class Program {
         System.out.println();
         System.out.println("\n === Test 6: seller delete ===");
         System.out.println("Enter id for delete test: ");
-        int id = scanner.nextInt();
+        int id = sc.nextInt();
 
         sellerDao.deleteById(id);
 
         System.out.println("Deleted successfully");
+
+        sc.close();
     }
 }
